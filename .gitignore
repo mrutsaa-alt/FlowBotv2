@@ -1,0 +1,14 @@
+node_modules/
+.env
+dist/
+*.log
+
+# Secrets and local backups
+.env
+.env.*
+!.env.example
+!.env.production.example
+**/.env
+**/.env.*
+!**/.env.example
+*.bak

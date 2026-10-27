@@ -1,0 +1,176 @@
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  background: #111815;
+  color: #e2ebe6;
+}
+
+:root[data-theme='dark'] body {
+  background: #111815;
+}
+
+.theme-dark {
+  background: #111815;
+  color: #e2ebe6;
+}
+
+.theme-dark .app-sidebar,
+.theme-dark .topbar,
+.theme-dark .bg-white,
+.theme-dark [class*='bg-white/'] {
+  background-color: #19221e !important;
+}
+
+.theme-dark .app-sidebar,
+.theme-dark .topbar,
+.theme-dark .brand-row,
+.theme-dark .sidebar-bottom,
+.theme-dark .border-slate-100,
+.theme-dark .border-slate-200,
+.theme-dark .border-slate-300 {
+  border-color: #2b3932 !important;
+}
+
+.theme-dark .brand-copy strong,
+.theme-dark .breadcrumbs strong,
+.theme-dark .page-heading h1,
+.theme-dark .nav-item,
+.theme-dark .workspace-switcher strong,
+.theme-dark .user-meta strong,
+.theme-dark .channel-card h3,
+.theme-dark .flow-inspector strong {
+  color: #e2ebe6;
+}
+
+.theme-dark .page-area,
+.theme-dark .main-nav,
+.theme-dark .app-main {
+  background-color: #111815;
+}
+
+.theme-dark .workspace-switcher,
+.theme-dark .channel-connect-existing,
+.theme-dark .channel-card,
+.theme-dark .module-stack > .bg-white,
+.theme-dark .rounded-2xl.bg-white {
+  border-color: #2b3932;
+  background-color: #19221e;
+}
+
+.theme-dark .nav-item:hover,
+.theme-dark .icon-button:hover {
+  background-color: #26332c;
+  color: #d3e2da;
+}
+
+.theme-dark .nav-item-active {
+  background-color: #233a31;
+  color: #8bd1ad;
+  box-shadow: inset 3px 0 #53aa7a;
+}
+
+.theme-dark .nav-item-active svg {
+  color: #8bd1ad;
+}
+
+.theme-dark .text-slate-900,
+.theme-dark .text-slate-800,
+.theme-dark .text-slate-700,
+.theme-dark .text-slate-600 {
+  color: #dce7e1 !important;
+}
+
+.theme-dark .text-slate-500,
+.theme-dark .text-slate-400,
+.theme-dark .text-slate-300 {
+  color: #a0b0a7 !important;
+}
+
+.theme-dark [class*='bg-slate-50'],
+.theme-dark [class*='bg-slate-100'] {
+  background-color: #202b25 !important;
+}
+
+.theme-dark input:not([type='checkbox']),
+.theme-dark textarea,
+.theme-dark select {
+  border-color: #3a4b41 !important;
+  background-color: #17201b !important;
+  color: #e2ebe6 !important;
+}
+
+.theme-dark .notification-popover,
+.theme-dark .search-dialog,
+.theme-dark .auth-language-menu {
+  border-color: #34443b;
+  background-color: #1b2620;
+  color: #e2ebe6;
+}
+
+.theme-dark .flow-builder-shell {
+  --builder-ink: #e2ebe6;
+  --builder-muted: #a0b0a7;
+  --builder-line: #34443b;
+  --builder-accent: #65b89b;
+  background: #111815;
+  color: #e2ebe6;
+}
+
+.theme-dark .flow-builder-topbar,
+.theme-dark .flow-palette,
+.theme-dark .flow-inspector {
+  border-color: #34443b;
+  background: #19221e;
+}
+
+.theme-dark .flow-builder-brand strong,
+.theme-dark .flow-panel-heading > span,
+.theme-dark .flow-inspector-intro strong {
+  color: #e2ebe6;
+}
+
+.theme-dark .flow-canvas-panel,
+.theme-dark .flow-canvas-stage {
+  background: #151d19;
+}
+
+.theme-dark .flow-canvas-toolbar,
+.theme-dark .flow-canvas-stage .react-flow__controls,
+.theme-dark .flow-canvas-stage .react-flow__controls-button {
+  border-color: #34443b;
+  background: #19221e;
+  color: #d4e0d9;
+}
+
+.theme-dark .flow-node {
+  border-color: #3b4b42;
+  background: #202b25;
+  color: #dce7e1;
+}
+
+.theme-dark .flow-node-header,
+.theme-dark .flow-panel-heading,
+.theme-dark .flow-inspector-intro {
+  border-color: #34443b;
+}
+
+.theme-dark .flow-node-heading strong,
+.theme-dark .flow-node-value,
+.theme-dark .flow-node-message,
+.theme-dark .flow-canvas-breadcrumb strong {
+  color: #dce7e1;
+}
+
+.theme-dark .flow-palette-item,
+.theme-dark .flow-field,
+.theme-dark .flow-fit-button,
+.theme-dark .flow-save-button {
+  border-color: #3a4b41;
+  background: #202b25;
+  color: #dce7e1;
+}
+
+.theme-dark .flow-status-message {
+  border-color: #34443b;
+  background: #202b25;
+  color: #dce7e1;
+}

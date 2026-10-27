@@ -1,0 +1,6 @@
+BEGIN;
+ALTER TABLE flows ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+ALTER TABLE flows ADD COLUMN IF NOT EXISTS published_at TIMESTAMPTZ;
+ALTER TABLE flows ADD COLUMN IF NOT EXISTS version INTEGER NOT NULL DEFAULT 1;
+CREATE INDEX IF NOT EXISTS idx_flows_channel_active_keyword ON flows(channel_id, is_active, trigger_keyword);
+COMMIT;

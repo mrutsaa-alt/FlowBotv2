@@ -1,0 +1,13 @@
+BEGIN;
+ALTER TABLE messages ADD COLUMN IF NOT EXISTS provider_message_id VARCHAR(255);
+ALTER TABLE messages ADD COLUMN IF NOT EXISTS delivery_status VARCHAR(20) NOT NULL DEFAULT 'unknown';
+ALTER TABLE messages ADD COLUMN IF NOT EXISTS delivered_at TIMESTAMPTZ;
+ALTER TABLE messages ADD COLUMN IF NOT EXISTS read_at TIMESTAMPTZ;
+CREATE INDEX IF NOT EXISTS idx_messages_provider_message_id ON messages(provider_message_id) WHERE provider_message_id IS NOT NULL;
+ALTER TABLE subscribers ADD COLUMN IF NOT EXISTS marketing_opt_in BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS template_name VARCHAR(512);
+ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS template_language VARCHAR(16);
+ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS template_components JSONB NOT NULL DEFAULT '[]'::jsonb;
+ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS audience_policy VARCHAR(32) NOT NULL DEFAULT 'channel_default';
+ALTER TABLE broadcast_recipients ADD COLUMN IF NOT EXISTS provider_message_id VARCHAR(255);
+COMMIT;

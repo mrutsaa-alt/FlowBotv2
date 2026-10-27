@@ -1,0 +1,14 @@
+BEGIN;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS password_salt VARCHAR(128);
+CREATE TABLE IF NOT EXISTS workspaces(id BIGSERIAL PRIMARY KEY,name VARCHAR(160) NOT NULL,owner_user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW());
+CREATE TABLE IF NOT EXISTS workspace_members(workspace_id BIGINT NOT NULL REFERENCES workspaces(id) ON DELETE CASCADE,user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,role VARCHAR(24) NOT NULL CHECK(role IN ('owner','admin','agent','viewer')),created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),PRIMARY KEY(workspace_id,user_id));
+ALTER TABLE channels ADD COLUMN IF NOT EXISTS workspace_id BIGINT REFERENCES workspaces(id) ON DELETE CASCADE;
+ALTER TABLE channels ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+INSERT INTO workspaces(name,owner_user_id) SELECT COALESCE(u.name,'User') || E'\'s Workspace',u.id FROM users u WHERE NOT EXISTS (SELECT 1 FROM workspaces w WHERE w.owner_user_id=u.id);
+INSERT INTO workspace_members(workspace_id,user_id,role) SELECT w.id,w.owner_user_id,'owner' FROM workspaces w ON CONFLICT DO NOTHING;
+UPDATE channels c SET workspace_id=w.id FROM workspaces w WHERE c.workspace_id IS NULL AND c.user_id=w.owner_user_id;
+CREATE INDEX IF NOT EXISTS idx_channels_workspace ON channels(workspace_id);
+CREATE INDEX IF NOT EXISTS idx_flows_channel_active ON flows(channel_id,is_active);
+CREATE INDEX IF NOT EXISTS idx_subscribers_channel_created ON subscribers(channel_id,created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_messages_subscriber_created ON messages(subscriber_id,created_at);
+COMMIT;

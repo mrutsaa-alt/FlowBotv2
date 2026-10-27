@@ -1,0 +1,19 @@
+{
+  "name": "flowbot-saas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-project FlowBot customer engagement and messaging automation SaaS",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "install:all": "npm --prefix backend ci && npm --prefix frontend ci",
+    "dev:local": "node scripts/dev-local.js",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "test": "npm --prefix backend test",
+    "check:backend": "npm --prefix backend run check",
+    "build": "npm --prefix frontend run build",
+    "migrate": "npm --prefix backend run migrate"
+  }
+}

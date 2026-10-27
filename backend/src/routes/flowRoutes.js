@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/flowController');
+const { requireAuth } = require('../middleware/auth');
+const workspaceAccess = require('../middleware/workspaceAccess');
+router.use(requireAuth, workspaceAccess);
+router.get('/:id/executions', controller.getExecutions);
+router.get('/:id/versions', controller.getVersions);
+router.get('/:channelId', controller.getFlows);
+router.post('/', controller.createFlow);
+router.put('/:id', controller.updateFlow);
+router.delete('/:id', controller.deleteFlow);
+module.exports = router;

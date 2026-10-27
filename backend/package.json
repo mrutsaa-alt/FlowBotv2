@@ -1,0 +1,24 @@
+{
+  "name": "flowbot-backend",
+  "version": "1.0.0",
+  "description": "FlowBot Backend API Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "migrate": "node scripts/migrate.js",
+    "test": "node --test",
+    "check": "find . -name '*.js' -not -path './node_modules/*' -print0 | xargs -0 -n1 node --check",
+    "encrypt-tokens": "node scripts/encrypt-existing-tokens.js"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
